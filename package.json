@@ -1,0 +1,27 @@
+{
+  "name": "basic-informational-site-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smsarfroz/Basic-Informational-Site-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smsarfroz/Basic-Informational-Site-/issues"
+  },
+  "homepage": "https://github.com/smsarfroz/Basic-Informational-Site-#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "url": "^0.11.4"
+  },
+  "type": "module"
+}
