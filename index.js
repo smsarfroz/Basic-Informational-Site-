@@ -1,8 +1,48 @@
-import http from 'http';
-import fs from 'fs';
-import { URL } from 'url';
+import express from 'express';
+const app = express();
+import 'dotenv/config';
 
-const server = http.createServer((req, res) => {
+const PORT = 8080;
+
+const currentDir = import.meta.dirname;
+console.log(`Hello ${process.env.HELLO}`);
+
+app.get('/', (req, res) => {
+    async function handleReq() {
+        try {
+            await res.sendFile('index.html', { root: currentDir });
+
+        } catch (err) {
+            res.sendFile('404.html', {root: currentDir});
+        }
+    }
+    handleReq();
+})
+
+app.get('/about', (req, res) => {
+    async function handleReq() {
+        try {
+            await res.sendFile('about.html', { root: currentDir });
+
+        } catch (err) {
+            res.sendFile('404.html', {root: currentDir});
+        }
+    }
+    handleReq();
+})
+app.get('/contact-me', (req, res) => {
+    async function handleReq() {
+        try {
+            await res.sendFile('contact-me.html', { root: currentDir });
+
+        } catch (err) {
+            res.sendFile('404.html', {root: currentDir});
+        }
+    }
+    handleReq();
+})
+
+/* const server = http.createServer((req, res) => {
     const log = `${Date.now()} : ${req.url} ${req.method} new request received\n`;
 
     const baseURL = `http://${req.headers.host}`;
@@ -31,6 +71,6 @@ const server = http.createServer((req, res) => {
             return res.end();
         }
     })
-})
+}) */
 
-server.listen(8080, () => console.log("Server started!"));
+app.listen(PORT, () => console.log("Server started!"));
